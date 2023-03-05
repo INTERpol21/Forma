@@ -46,9 +46,10 @@ export default function MyForm() {
                                 message: 'Минимум 2 буквы'
                             },
                             pattern: {
-                                value: /[A-Za-z]{3}/,
+                                value: /^[a-z ,.'-]+$/i,
                                 message: 'Только латинские буквы'
-                            }
+                            },
+                            setValueAs: v => parseInt(v),
                         }}
                         render={({ field, fieldState }) => (
                             <>
@@ -95,7 +96,7 @@ export default function MyForm() {
                                 value: 10,
                                 message: 'Минимум 10 символов'
                             }, pattern: {
-                                value: /[А-Яа-я]{3}/,
+                                value: /^[а-я ,.'-]+$/i,
                                 message: 'Только кириллица'
                             }
                         }}
